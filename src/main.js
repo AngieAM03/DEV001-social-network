@@ -1,5 +1,12 @@
-// Este es el punto de entrada de tu aplicacion
+import { Router } from './components/router.js';
 
-import { myFunction } from './lib/index.js';
+const divRoot = document.getElementById('root');
 
-myFunction();
+window.onpopstate = () => {
+  divRoot.innerHTML = '';
+  divRoot.innerHTML = Router();
+};
+
+window.addEventListener('DOMContentLoaded', Router);
+
+window.addEventListener('hashchange', Router);

@@ -1,11 +1,10 @@
-import { timeout } from "async";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {app} from "../lib/firebase.js"
 
 export const signUp = () => {
-  const signUpSection = document.createElement('section');
-  signUpSection.classList.add('signUp-page');
+  const signUpSection = document.createElement("section");
+  signUpSection.classList.add("signUp-page");
   signUpSection.innerHTML = `
-      <section class="hu-2">
         <figure class="img-hu2">
             <img class="cat-hu2" src="images/cat-hu2.png" alt="Imagen de un gatito">
         </figure>
@@ -26,32 +25,50 @@ export const signUp = () => {
                   <button id="acept" type="submit">Aceptar</button>
             </form>
         </main>
-      </section>
-    </section>`;
+      </section>`;
 
+  const loginSession = document.createElement('div');
+  loginSession.classList.add('login-Session');
+  const parrafoSession = document.createElement('p');
+  parrafoSession.classList.add('parrafoSession');
+  parrafoSession.textContent = '¿Ya tienes una cuenta?';
+  const aLoginSession = document.createElement('a');
+  aLoginSession.setAttribute('href', '#');
+  aLoginSession.classList.add('go-pageLoginr');
+  aLoginSession.textContent = 'Inicia Sesión';
+  signUpSection.appendChild(loginSession);
+  loginSession.appendChild(parrafoSession);
+  parrafoSession.appendChild(aLoginSession);
+
+
+  const form = signUpSection.querySelector(".page-2");
+  form.querySelector("#acept").addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = form.querySelector(".email").value;
+    const password = form.querySelector(".password").value;
+    const nickname = form.querySelector(".nickname").value;
+    const passwordVerified = form.querySelector(".passwordVerified").value;
+    console.log(nickname, email, password, passwordVerified);
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email, password, passwordVerified)
+      .then(function (user) {
+        console.log("Usuario creado con éxito:", user);
+        alert ('Usuario creado')
+      })
+      .catch(function (error) {
+        console.error("Error al crear usuario:", error);
+        if (error.code === 'auth/email-already-in-use') {
+          console.error('El correo ya está en uso');
+          alert ('La dirección de correo electrónico que ingresaste ya se encuentra en uso en otra cuenta de PetBook')
+        } if (error.code === 'auth/weak-password') {
+          console.error(error.message);
+          alert ('La contraseña debe tener al menos 6 caracteres.')
+        } if (!(password.value===passwordVerified.value)){
+          console.error(error.message);
+          console.error('Las contraseñas no coinciden');
+          alert ('La contraseña no coincide')
+        }
+      });
+  });
   return signUpSection;
 };
-const signUpSection = signUp()
-const form = signUpSection.querySelector('.page-2');
-console.log(form)
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const email = form.querySelector('.email').value;
-  const password = form.querySelector('.password').value;
-  const nickname = form.querySelector('.nickname').value;
-
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
-    user.updateProfile({
-      displayName: nickname
-    }).catch(function (error) {
-      console.error(error);
-    });
-  }).catch(function (error) {
-    console.error(error);
-  });
-});
-
-
-
-

@@ -51,6 +51,8 @@
   },
   "homepage": "https://github.com/AngieAM03/DEV001-social-network#readme",
   "dependencies": {
+    "@firebase/auth": "^0.21.0",
+    "@firebase/firestore": "^3.8.0",
     "abab": "^2.0.6",
     "acorn": "^8.8.1",
     "acorn-globals": "^6.0.0",

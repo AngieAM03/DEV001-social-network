@@ -1,14 +1,16 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { getFirestore, collection, addDoc, doc, onSnapshot} from "firebase/firestore";
+import { app } from "./firebase";
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+const auth = getAuth(app);
+export const db = getFirestore(app)
+export const createEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password) 
+export const singUpEmail = (email, password) => signInWithEmailAndPassword(auth, email, password)
+export const saveTask = (textPublication) => {
+  addDoc(collection (db, 'tasks'), {textPublication})
+}
+/*export const getTask = () => {
+  getDocs (collection (db, 'tasks'))
+}*/
+export const listenerTask = (callback) => onSnapshot(collection(db, 'tasks'), callback);
+

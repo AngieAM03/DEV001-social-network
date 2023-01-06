@@ -1,5 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../lib/firebase.js";
+import { singUpEmail } from "../lib/functionFirebase.js";
 
 export const login = () => {
   const loginSection = document.createElement('section');
@@ -19,38 +18,27 @@ export const login = () => {
           <input type="email" class="email" name="email" placeholder="Correo electrónico" required >
           <input type="password" class="password" name="password" placeholder="Contraseña" required >
           <button type= "button" class="startGoogle"><img class="icon-Google" src="images/icon-Google.png" alt="Icono de Google" />Iniciar Sesión con Google</button>
+          <h3 class="go-register">¿No tienes una cuenta?<span class="register">Registrate</span></h3>
+          <button type="button" class="startSesion" id="startSesion">Iniciar sesión</button>
           <div class="registrate"></div>
         </form>      
       </main>
     </section>`;
 
-  const Register = document.createElement('div');
-  Register.classList.add('Registro');
-  const parrafo = document.createElement('p');
-  parrafo.classList.add('border');
-  parrafo.textContent = '¿No tienes una cuenta?';
-  const aRegister = document.createElement('a');
-  aRegister.setAttribute('href', '#signUp');
-  aRegister.classList.add('go-pageRegister');
-  aRegister.textContent = 'Registrate';
-  loginSection.appendChild(Register);
-  Register.appendChild(parrafo);
-  parrafo.appendChild(aRegister);
+  const p = loginSection.querySelector('.register');
+  const a = document.createElement('a');
+  a.setAttribute('href', '#signUp');
+  a.textContent = p.textContent;
+  p.parentNode.replaceChild(a, p);
 
-  const buttonWall = document.createElement("button");
-  buttonWall.id = "startSesion";
-  buttonWall.textContent = "Iniciar sesión";
-  loginSection.appendChild(buttonWall);
   loginSection.querySelector("#startSesion").addEventListener("click", (e) => {
     e.preventDefault();
     const email = loginSection.querySelector(".email").value;
     const password = loginSection.querySelector(".password").value;
-    const auth = getAuth(app);
-    signInWithEmailAndPassword(auth, email, password)
-      .then(function (user) {
-        console.log("Logueo exitoso:", user);
-        window.location.hash = '#wall';
-      })
+    singUpEmail(email, password).then(function (user) {
+      console.log("Logueo exitoso:", user);
+      window.location.hash = '#wall';
+    })
       .catch(function (error) {
         console.error("Logueo incorrecto:", error);
         if (error.code === "auth/wrong-password") {

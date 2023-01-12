@@ -6,13 +6,13 @@ export const wall = () => {
   wallSection.innerHTML = ` 
   <section class="part1">
     <h1 class="title">PetsPerfect</h1>
-    <button class="btn-home"><img class="home" src="images/hogar.png" alt="Logo Inicio"/>Inicio</button>
-    <button class="btn-adopt"><img class="huella" src="images/patas.png" alt="Logo Adopción"/>Adopción</button>
+    <button class="btn-home"><img class="home" src="images/hogar.png" alt="Logo Inicio"/><p class="text-home">Inicio</p></button>
+    <button class="btn-adopt"><img class="huella" src="images/patas.png" alt="Logo Adopción"/><p class="text-adopt">Adopción</button>
   </section>
   <section class="part2">
   <form id="publication">
     <p class="nickName"></p>
-    <textarea id="task-publication" rows="3" class="task-publication"  placeholder="En que estas pensando"></textarea>
+    <input type="text" name="text" id="task-publication" rows="3" class="task-publication"  placeholder="En que estas pensando">
     <button class="btn-publication" id="btn-publication">Publicar</button>
   </form>
   <p class="wallPublication"></p>
@@ -42,8 +42,7 @@ export const wall = () => {
     querySnapshot.forEach((doc) => {
       const taskRpta = doc.data();
       publicationSection.innerHTML += `<div>
-      <span class="user">${taskRpta.nickName}</span>
-      <textarea>${taskRpta.textPublication}</textarea>
+      <p class="post">${taskRpta.textPublication}</p>
       <button class ="delete" data-id="${doc.id}">Eliminar</button>
       </div>`;
     });

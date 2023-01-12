@@ -151,16 +151,19 @@ h3 {
 }
 
 .part2 {
-    background-color: whitesmoke;
     margin: 0px 20px;
     height: 100vh;
-    padding: 36rem;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 
 .part1,
 .part3 {
     background-color: white;
     height: 100vh;
+    width: 20vw;
 }
 
 .part3 {
@@ -168,6 +171,8 @@ h3 {
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
     margin-right: 0px;
     margin-left: 20px;
+    display: flex;
+    position: relative;
 }
 
 .part1 {
@@ -181,7 +186,6 @@ h3 {
 .mi-perfil,
 .configuracion {
     padding: 0px 10px;
-    justify-content: flex-end;
 }
 
 .btn-home,
@@ -198,20 +202,80 @@ h3 {
 
 .title,
 .mi-perfil {
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .configuracion {
     margin-bottom: 50px;
-    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
 }
 
+.tuerca-configuracion { 
+    position: absolute;
+    bottom: 100px;
+}
+
+#publication{
+    display: flex;
+    width: 55vw;
+    flex-direction: column;
+    background-color: whitesmoke;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.task-publication{
+    display: flex;
+    align-items: center;
+    width: 45vw;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-publication{
+    width: 10vw;
+    margin: auto;
+    margin-top: 20px;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.wallPublication {
+    display: flex;
+    width: 55vw;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-self: start;
+    background-color: whitesmoke;
+}
+
+.post{
+    background-color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.delete{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
 
 @media screen and (max-width: 1024px) {
     body {
-        display: flex;
         align-items: center;
         justify-content: center;
+        height: auto;
     }
 
     .img-hu1,
@@ -232,82 +296,198 @@ h3 {
     }
 
     .wall-page{
+        display: flex;
         flex-direction: column;
-    }
-    .part2 {
-        background-color: whitesmoke;
-        margin: 0px 20px;
-        height: 60px;
-        padding: 36rem;
-    }
-
-    .part1,
-    .part3 {
-        background-color: white;
-        width: 100vw;
-        height: 20px;
-    }
-
-    .part3 {
-        border-right: 2px solid whitesmoke;
-        box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
-        margin-right: 0px;
-        margin-left: 20px;
     }
 
     .part1 {
-        border-right: 2px solid whitesmoke;
-        box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
-        margin-right: 20px;
-        margin-left: 0px;
-        display: inline;
-    }
-
-    .mi-perfil,
-    .configuracion {
-        padding: 0px 10px;
+        top: 0%;
+        height: 10vh;
+        width: 100vw;
+        margin-right: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .btn-home,
     .btn-adopt {
+        margin: auto;
+        top: 0px;
+        background-color: white;
+        box-shadow: 0px 0 0px rgba(0, 0, 0, 0.2);
+        border: 0px solid whitesmoke;
+    }
+
+    .title { 
+        margin: auto;
+        padding: 0px;
+    }
+
+    .part2 {
+        height: 80vh;
+        width: 100vw;
+        margin: auto;
+        border-right: 0px solid whitesmoke;
+        box-shadow: 0px 0 0px rgba(0, 0, 0, 0.2);
+        overflow: auto;
         display: flex;
         align-items: center;
-        flex-direction: column;
-        box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
-        border: 2px solid whitesmoke;
+    }
+
+    .part3 {
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        background-color: white;
+        margin: auto;
+        flex-direction: row-reverse;
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    #publication{
+        width: 90vw;
+        margin-top: 10px;
+    } 
+
+    .task-publication{
+        width: 80vw;
+        margin: auto;
+        margin-top: 30px;
+        padding: 20px;
+    }
+    
+    .btn-publication{
+        width: 20vw;
         margin: auto;
         margin-top: 20px;
-        padding: 10px;
     }
 
-    .title,
+    .wallPublication {
+        display: flex;
+        width: 90vw;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 0px 20px;
+        flex-direction: column;
+        background-color: whitesmoke;
+    }
+    
+
     .mi-perfil {
-        margin-top: 50px;
+        padding: 0px;
+        margin: auto;
     }
 
-    .configuracion {
-        margin-bottom: 50px;
-        align-items: flex-end;
+    .tuerca-configuracion { 
+        margin: auto;
+        position: relative;
+        bottom: 0px;
+    }
+
+    .configuracion{
+        display: none;
+    }
+
+    .text-home,
+    .text-adopt {
+        display: none;
     }
 
 }
 
 @media screen and (max-width:900px) {
     body {
-        font-size: 14px;
-        height: 100vh;
-        display: flex;
         align-items: center;
         justify-content: center;
+        height: auto;
     }
 
     .img-hu1,
     .img-hu2 {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 10%;
     }
 
     .puppy-hu1,
     .cat-hu2 {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .wall-page{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .part1 {
+        top: 0%;
+        height: 10vh;
+        width: 100vw;
+        margin-right: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .btn-home,
+    .btn-adopt {
+        margin: auto;
+        top: 0px;
+        background-color: white;
+        border: 0px;
+    }
+
+    .title { 
+        margin: auto;
+        padding: 0px;
+    }
+
+    .part2 {
+        height: 60px;
+        width: 100vw;
+        height: 80vh;
+        margin: auto;
+        border: 0px;
+        padding: 0%;
+        overflow: auto;
+    }
+
+    .publication{
+        display: flex;
+    }
+    .part3 {
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        border: none;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .mi-perfil {
+        padding: 0px;
+        margin: auto;
+    }
+
+    .tuerca-configuracion { 
+        margin: auto;
+    }
+
+    .configuracion{
+        display: none;
+    }
+
+    .text-home,
+    .text-adopt {
         display: none;
     }
 

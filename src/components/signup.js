@@ -1,8 +1,8 @@
-import { createEmail } from "../lib/functionFirebase.js";
+import { createEmail } from '../lib/functionFirebase.js';
 
 export const signUp = () => {
-  const signUpSection = document.createElement("section");
-  signUpSection.classList.add("signUp-page");
+  const signUpSection = document.createElement('section');
+  signUpSection.classList.add('signUp-page');
   signUpSection.innerHTML = `
         <figure class="img-hu2">
             <img class="cat-hu2" src="images/cat-hu2.png" alt="Imagen de un gatito">
@@ -27,31 +27,29 @@ export const signUp = () => {
         </main>
       </section>`;
 
-  const p = signUpSection.querySelector('.login')
+  const p = signUpSection.querySelector('.login');
   const a = document.createElement('a');
   a.setAttribute('href', '#');
   a.textContent = p.textContent;
   p.parentNode.replaceChild(a, p);
 
-  const form = signUpSection.querySelector(".singUp-form");
-  form.querySelector("#acept").addEventListener("click", (e) => {
+  const form = signUpSection.querySelector('.singUp-form');
+  form.querySelector('#acept').addEventListener('click', (e) => {
     e.preventDefault();
-    const email = form.querySelector(".email").value;
-    const password = form.querySelector(".password").value;
-    const nickname = form.querySelector(".nickname").value;
-    console.log(nickname, email, password);
-    createEmail(email, password).then(function (user) {
-      console.log("Usuario creado con éxito:", user);
-      alert('Usuario creado')
+    const email = form.querySelector('.email').value;
+    const password = form.querySelector('.password').value;
+    createEmail(email, password).then((user) => {
+      const userCredential = user.userCredential;
+      alert('Usuario creado', userCredential);
     })
-      .catch(function (error) {
-        console.error("Error al crear usuario:", error);
+      .catch((error) => {
+        console.error('Error al crear usuario:', error);
         if (error.code === 'auth/email-already-in-use') {
           console.error('El correo ya está en uso');
-          alert('La dirección de correo electrónico que ingresaste ya se encuentra en uso en otra cuenta de PetBook')
+          alert('La dirección de correo electrónico que ingresaste ya se encuentra en uso en otra cuenta de PetBook');
         } if (error.code === 'auth/weak-password') {
-          console.error(error.message);
-          alert('La contraseña debe tener al menos 6 caracteres.')
+          console.error('Contraseña con caracteres insuficientes');
+          alert('La contraseña debe tener al menos 6 caracteres.');
         }
       });
   });

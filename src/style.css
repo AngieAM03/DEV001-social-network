@@ -5,7 +5,8 @@
 }
 
 html {
-    font-size: 62.5%; /* Establece la fuente REM de 16px a 10px */
+    font-size: 62.5%;
+    /* Establece la fuente REM de 16px a 10px */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -17,32 +18,38 @@ body {
     justify-content: center;
 }
 
-.login-page, .signUp-page {
+.login-page,
+.signUp-page,
+.wall-page {
     display: flex;
 }
 
-.login-form, .singUp-form {
+.login-form,
+.singUp-form,
+.part1,
+.part3 {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    align-items: center;
 }
 
-.img-hu1, .img-hu2{
+.img-hu1,
+.img-hu2 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.puppy-hu1, .cat-hu2 { 
+.puppy-hu1,
+.cat-hu2 {
     height: 70%;
 }
 
 hr {
-    background-color:rgb(192, 192, 192);
+    background-color: rgb(192, 192, 192);
     width: 70%;
-  }
+}
 
 header {
     display: flex;
@@ -61,12 +68,22 @@ h2 {
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    font-size: 3rem; 
+    font-size: 3rem;
 }
 
-.logo-hu1{
+.logo-hu1 {
     width: 40%;
     margin-bottom: 3rem;
+}
+
+.home,
+.huella,
+.tuerca-configuracion {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 5px;
+    padding: 10px 10px;
 }
 
 .icon-Google {
@@ -76,17 +93,25 @@ h2 {
     margin-right: 5px;
 }
 
-.nickname, .dateBorn, .passwordVerified, .registerGoogle, .email, .password, .startGoogle, h3 {
+.nickname,
+.dateBorn,
+.passwordVerified,
+.registerGoogle,
+.email,
+.password,
+.startGoogle,
+h3 {
     margin-bottom: 3rem;
 }
 
-.nickname, .dateBorn, .passwordVerified, .email, .password {
+.nickname,
+.dateBorn,
+.passwordVerified,
+.email,
+.password {
     padding: 12px;
     border-radius: 7px;
     border-width: 1px;
-}
-
-.nickname, .dateBorn, .passwordVerified, .email, .password {
     width: 70%;
     background-color: rgb(201, 198, 198);
     font-size: 1.4rem;
@@ -107,7 +132,10 @@ h3 {
     cursor: pointer;
 }
 
-.registerGoogle, #acept, .startGoogle, #startSesion {
+.registerGoogle,
+#acept,
+.startGoogle,
+#startSesion {
     padding: 12px;
     font-size: 1.6rem;
     font-weight: bold;
@@ -117,8 +145,65 @@ h3 {
     align-items: center;
 }
 
-.registerGoogle, .nickname{
+.registerGoogle,
+.nickname {
     margin-top: 2.5rem;
+}
+
+.part2 {
+    background-color: whitesmoke;
+    margin: 0px 20px;
+    height: 100vh;
+    padding: 36rem;
+}
+
+.part1,
+.part3 {
+    background-color: white;
+    height: 100vh;
+}
+
+.part3 {
+    border-right: 2px solid whitesmoke;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+    margin-right: 0px;
+    margin-left: 20px;
+}
+
+.part1 {
+    border-right: 2px solid whitesmoke;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    margin-left: 0px;
+    display: inline;
+}
+
+.mi-perfil,
+.configuracion {
+    padding: 0px 10px;
+    justify-content: flex-end;
+}
+
+.btn-home,
+.btn-adopt {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid whitesmoke;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.title,
+.mi-perfil {
+    margin-top: 50px;
+}
+
+.configuracion {
+    margin-bottom: 50px;
+    align-items: flex-end;
 }
 
 
@@ -129,7 +214,8 @@ h3 {
         justify-content: center;
     }
 
-    .img-hu1, .img-hu2 {
+    .img-hu1,
+    .img-hu2 {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -138,26 +224,91 @@ h3 {
         margin: 10%;
     }
 
-    .puppy-hu1, .cat-hu2 {
+    .puppy-hu1,
+    .cat-hu2 {
         display: block;
         max-width: 100%;
         height: auto;
     }
+
+    .wall-page{
+        flex-direction: column;
+    }
+    .part2 {
+        background-color: whitesmoke;
+        margin: 0px 20px;
+        height: 60px;
+        padding: 36rem;
+    }
+
+    .part1,
+    .part3 {
+        background-color: white;
+        width: 100vw;
+        height: 20px;
+    }
+
+    .part3 {
+        border-right: 2px solid whitesmoke;
+        box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+        margin-right: 0px;
+        margin-left: 20px;
+    }
+
+    .part1 {
+        border-right: 2px solid whitesmoke;
+        box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+        margin-right: 20px;
+        margin-left: 0px;
+        display: inline;
+    }
+
+    .mi-perfil,
+    .configuracion {
+        padding: 0px 10px;
+    }
+
+    .btn-home,
+    .btn-adopt {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+        border: 2px solid whitesmoke;
+        margin: auto;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .title,
+    .mi-perfil {
+        margin-top: 50px;
+    }
+
+    .configuracion {
+        margin-bottom: 50px;
+        align-items: flex-end;
+    }
+
 }
 
 @media screen and (max-width:900px) {
     body {
-      font-size: 14px;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        font-size: 14px;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .img-hu1, .img-hu2 {
+
+    .img-hu1,
+    .img-hu2 {
         display: none;
     }
-    .puppy-hu1, .cat-hu2 {
-    display: none;
+
+    .puppy-hu1,
+    .cat-hu2 {
+        display: none;
     }
 
 }

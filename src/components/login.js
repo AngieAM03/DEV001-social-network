@@ -1,4 +1,5 @@
-import { singUpEmail } from "../lib/functionFirebase.js";
+/* eslint-disable no-unused-vars */
+import { singInEmail } from '../lib/functionFirebase.js';
 
 export const login = () => {
   const loginSection = document.createElement('section');
@@ -31,20 +32,19 @@ export const login = () => {
   a.textContent = p.textContent;
   p.parentNode.replaceChild(a, p);
 
-  loginSection.querySelector("#startSesion").addEventListener("click", (e) => {
+  loginSection.querySelector('#startSesion').addEventListener('click', (e) => {
     e.preventDefault();
-    const email = loginSection.querySelector(".email").value;
-    const password = loginSection.querySelector(".password").value;
-    singUpEmail(email, password).then(function (user) {
-      console.log("Logueo exitoso:", user);
+    const email = loginSection.querySelector('.email').value;
+    const password = loginSection.querySelector('.password').value;
+    singInEmail(email, password).then((user) => {
       window.location.hash = '#wall';
     })
-      .catch(function (error) {
-        console.error("Logueo incorrecto:", error);
-        if (error.code === "auth/wrong-password") {
-          console.error("Contraseña incorrecta");
-        } else if (error.code === "auth/user-not-found") {
-          console.error("Usuario invalido");
+      .catch((error) => {
+        console.error('Logueo incorrecto:', error);
+        if (error.code === 'auth/wrong-password') {
+          console.error('Contraseña incorrecta');
+        } else if (error.code === 'auth/user-not-found') {
+          console.error('Usuario invalido');
         }
       });
   });

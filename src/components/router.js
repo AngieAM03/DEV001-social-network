@@ -2,7 +2,6 @@ import { login } from './login.js';
 import { signUp } from './signup.js';
 import { wall } from './wall.js';
 
-
 export const Router = () => {
   const divRoot = document.getElementById('root');
   const hash = window.location.hash;

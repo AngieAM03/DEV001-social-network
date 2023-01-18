@@ -43,8 +43,10 @@ export const login = () => {
         console.error('Logueo incorrecto:', error);
         if (error.code === 'auth/wrong-password') {
           console.error('Contraseña incorrecta');
+          alert('Contraseña incorrecta');
         } else if (error.code === 'auth/user-not-found') {
           console.error('Usuario invalido');
+          alert('Usuario invalido');
         }
       });
   });

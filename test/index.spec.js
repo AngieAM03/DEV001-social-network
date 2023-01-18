@@ -31,7 +31,7 @@ describe('createEmail', () => {
   it('Deberia retornar un objeto con la propiedad email y password', () => {
     createEmail('cutoalberto@gmail.com', '1234567');
     expect({
-      email: 'danicagarcia@gmail.com',
+      email: 'cutoalberto@gmail.com',
       password: '1234567',
     }).toEqual(expect.anything());
   });
@@ -82,13 +82,11 @@ describe('saveTask', () => {
   it('Debería devolver un objeto', () => {
     addDoc.mockImplementation(() => Promise.resolve('resolve'));
     collection.mockImplementation(() => ({
-      coment: 'Hola',
-      likes: [],
+      textPublication: 'Hola',
     }));
     saveTask('Hola', []);
     expect(addDoc).toEqual(expect.anything(), {
-      coment: 'Hola',
-      likes: [],
+      textPublication: 'Hola',
     });
   });
 });
@@ -122,7 +120,7 @@ describe('deletePublication', () => {
   it('Debería ser llamada con un parametro', () => {
     const id = 'DWTm2mZI4UhaSRMSn01E';
     deletePublication(id);
-    expect(jest.fn()).toHaveBeenCalledWith(id);
+    expect(deleteDoc).toHaveBeenCalledWith(id);
   });
   it('Debería llamar al metodo updateDoc', () => {
     deletePublication(deleteDoc);

@@ -407,19 +407,12 @@ h3 {
 
     .img-hu1,
     .img-hu2 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 500px;
-        margin: 10%;
+        display: none;
     }
 
     .puppy-hu1,
     .cat-hu2 {
-        display: block;
-        max-width: 100%;
-        height: auto;
+        display: none;
     }
 
     .wall-page{
@@ -452,7 +445,6 @@ h3 {
     }
 
     .part2 {
-        height: 60px;
         width: 100vw;
         height: 80vh;
         margin: auto;

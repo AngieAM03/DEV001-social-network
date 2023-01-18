@@ -18,5 +18,4 @@ export const saveTask = (textPublication) => {
 };
 export const listenerUsers = (callback) => onSnapshot(collection(db, 'nickName'), callback);
 export const listenerTask = (callback) => onSnapshot(collection(db, 'tasks'), callback);
-
 export const deletePublication = (id) => deleteDoc(doc(db, 'tasks', id));

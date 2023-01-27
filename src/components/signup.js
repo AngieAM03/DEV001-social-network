@@ -1,4 +1,4 @@
-import { saveUsers, createEmail } from '../lib/functionFirebase.js';
+import { createEmail } from '../lib/functionFirebase.js';
 
 export const signUp = () => {
   const signUpSection = document.createElement('section');
@@ -38,11 +38,8 @@ export const signUp = () => {
     e.preventDefault();
     const email = form.querySelector('.email').value;
     const password = form.querySelector('.password').value;
-    const nickName = form.querySelector('.nickname');
-    createEmail(email, password, nickName).then((user) => {
-      const userCredential = user.userCredential;
-      alert('Usuario creado', userCredential);
-      saveUsers(nickName);
+    createEmail(email, password).then(() => {
+      alert('Usuario creado');
     })
       .catch((error) => {
         console.error('Error al crear usuario:', error);

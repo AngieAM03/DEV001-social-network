@@ -16,11 +16,11 @@ Red Social orientada al uso de dueños de mascotas para interactuar mediante fot
 
 Se realizo una pagina web la cual se orientaria al uso de los dueños de mascotas desde la perspectiva de la mascota, en el registro se pedira los datos de la mascota en cuestion
 
-<img src="Registro.png">
+<img src="images/Registro.png">
 
 Una vez registrado la pagina te invita a realizar el inicio de sesión con las credenciales creadas
 
-<img src="Login.png">
+<img src="images/Login.png">
 
 Por ultimo una vez iniciada la sesión te permitira postear y eliminar post realizados 
 

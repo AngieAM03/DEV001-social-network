@@ -20,7 +20,7 @@ Se realizo una pagina web la cual se orientaria al uso de los dueños de mascota
 
 Una vez registrado la pagina te invita a realizar el inicio de sesión con las credenciales creadas
 
-<img class="Login" src="images/Login.png" alt="">
+<img src="Login.png">
 
 Por ultimo una vez iniciada la sesión te permitira postear y eliminar post realizados 
 
